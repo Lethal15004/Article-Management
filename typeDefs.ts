@@ -7,7 +7,8 @@ const typeDefs = gql`
         description:String
     }
     type Query {
-        getListArticle:[Article]
+        getListArticle:[Article],
+        getArticle(id:String):Article
     }
 `;
 export default typeDefs;
