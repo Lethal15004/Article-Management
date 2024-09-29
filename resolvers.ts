@@ -1,6 +1,13 @@
+import Article from "./model/article.model";
+
 const resolvers={
     Query: {
-      hello: () => "Hello, World!",
+        getListArticle: async () => {
+            const articles= await Article.find({
+                deleted:false
+            })
+            return articles;
+        },
     },
 }
 export default resolvers;

@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import dotenv from 'dotenv';//Nhúng dotenv từ module dotenv
 dotenv.config();//Thêm config cho dotenv
 import { ApolloServer } from "apollo-server-express"; //Nhúng graphql server
