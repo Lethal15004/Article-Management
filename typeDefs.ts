@@ -6,6 +6,11 @@ const typeDefs = gql`
         avatar:String,
         description:String
     }
+    type Category{
+        id:String,
+        title:String,
+        avatar:String
+    }
     type Message{
         code:Int,
         message:String
@@ -13,7 +18,10 @@ const typeDefs = gql`
 
     type Query {
         getListArticle:[Article],
-        getArticle(id:String):Article
+        getArticle(id:String):Article,
+
+        getListCategory:[Category],
+        getCategory(id:String):Category,
     }
 
     input ArticleInput {
@@ -21,11 +29,19 @@ const typeDefs = gql`
         avatar:String,
         description:String
     }
+    input CategoryInput {
+        title:String,
+        avatar:String,
+    }
 
     type Mutation {
         createArticle(article:ArticleInput): Article,
         deleteArticle(id:String):Message,
-        updateArticle(id:String,article:ArticleInput):Article
+        updateArticle(id:String,article:ArticleInput):Article,
+
+        createCategory(category:CategoryInput): Category,
+        deleteCategory(id:String):Message,
+        updateCategory(id:String,category:CategoryInput):Category,
     }
 `;
 export default typeDefs;
