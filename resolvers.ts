@@ -27,6 +27,25 @@ const resolvers={
             const newArticle=new Article(article);
             await newArticle.save();
             return newArticle;
+        },
+        deleteArticle:async(_,args)=>{
+            const {id} = args;
+            try{    
+                await Article.updateOne({
+                    _id:id
+                },{
+                    deleted:true
+                })
+                return {
+                    code:200,
+                    message:"Delete article successfully"
+                }
+            }catch(e){
+                return {
+                    code:500,
+                    message:"Delete article failed"
+                }
+            }
         }
     }
 }
